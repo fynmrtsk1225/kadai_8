@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %>
+
+<table>
+  <tr>
+    <td><strong>Profile Image</strong><td>
+    <td><%= image_tag @user.image.url %>
+  </tr>
+</table>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
