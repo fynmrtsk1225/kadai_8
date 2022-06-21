@@ -16,7 +16,7 @@
   <% else %>
     <%= link_to 'Keep', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
-<% end %> |
+<% end %>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>

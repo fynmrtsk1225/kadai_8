@@ -1,0 +1,16 @@
+<h1>Keep pictures</h1>
+
+<tbody>
+  <% @favorites.each do |favorite| %>
+    <tr>
+      <td><%= image_tag favorite.picture.user.image.url %></td>
+      <td><%= link_to "#{favorite.picture.user.name}", user_path(favorite.picture.user.id) %></td>
+      <td><%= favorite.picture.content %></td>
+      <td><%= image_tag favorite.picture.image.url %></td>
+      <td><%= link_to 'Show', favorite.picture %></td>
+      <td><%= link_to 'Remove Keep', favorite, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure? '} %></td>
+    </tr>
+  <% end %>
+</tbody>
+
+<%= link_to 'Home', pictures_path %>

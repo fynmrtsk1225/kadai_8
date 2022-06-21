@@ -6,11 +6,8 @@ class PicturesController < ApplicationController
   end
 
   def new
-    if params[:back]
-      @picture = Picture.new(picture_params)
-    else
-      @picture = Picture.new
-    end
+    render :index and return if params[:back]
+    @picture = Picture.new
   end
 
   def confirm

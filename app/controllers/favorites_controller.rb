@@ -7,11 +7,11 @@ class FavoritesController < ApplicationController
 
   def destroy
     favorite = current_user.favorites.find_by(id: params[:id]).destroy
-    redirect_to pictures_path, notice: "Removed #{favorite.blog.user.name}'s Picture from Keep"
+    redirect_to pictures_path, notice: "Removed #{favorite.picture.user.name}'s Picture from Keep"
   end
 
-  def show
-    
+  def index
+    @favorites = current_user.favorites.all
   end
   
 end
