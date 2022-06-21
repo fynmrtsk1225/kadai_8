@@ -3,7 +3,7 @@
 <tbody>
   <% @pictures.each do |picture| %>
     <tr>
-      <td><%= picture.user.image.url %></td>
+      <td><%= image_tag picture.user.image.url %></td>
       <td><%= link_to "#{picture.user.name}", user_path(picture.user.id) %></td>
       <td><%= picture.content %></td>
       <td><%= image_tag picture.image.url %></td>

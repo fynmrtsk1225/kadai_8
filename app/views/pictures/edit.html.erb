@@ -1,2 +1,5 @@
-<h1>Pictures#edit</h1>
-<p>Find me in app/views/pictures/edit.html.erb</p>
+<h1>Edit picture</h1>
+
+<%= render 'form', picture: @picture %>
+
+<%= link_to 'Home', pictures_path %>
