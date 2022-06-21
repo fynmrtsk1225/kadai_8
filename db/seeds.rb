@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+50.times do |n|
+  image = File.open("./app/assets/images/Absol.png")
+  name = Faker::Games::Pokemon.name
+  email = Faker::Internet.email
+  password = "password"
+  password_confirmation = "password"
+  User.create!(image: image,
+                name: name,
+                email: email,
+                password: password,
+                password_confirmation: password_confirmation,
+                )
+end
