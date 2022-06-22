@@ -1,4 +1,15 @@
 <%= form_with(model: user, local: true) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.label :image %>
   <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
   <%= f.file_field :image %>
