@@ -12,4 +12,15 @@
   <%= @user.name %>
 </table>
 
-<%= link_to "Edit", edit_user_path(@user.id) %>
+<table>
+  <tr>
+    <% if @user == current_user %>
+      <td><%= link_to "Edit", edit_user_path(@user.id) %></td>
+      <td><%= link_to 'UnRegister', user_path(@user), method: :delete, data: { confirm: 'Do you really want to unregister?' } %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
+    <td><%= link_to 'Back', pictures_path %></td>
+  </tr>
+</table>

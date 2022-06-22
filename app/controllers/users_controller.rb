@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
+  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :ensure_user, only: %i[ edit update destroy ]
 
   def new
     @user = User.new
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def create
@@ -19,20 +20,31 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path, notice: "プロフィールを編集しました"
     else
       render :edit
     end
   end
-  
 
+  def destroy
+    @user.destroy
+    redirect_to new_user_path
+  end
+  
   private
+
+  def ensure_user
+    @users = current_user.id
+    redirect_to new_session_path if @user.id != @users
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:image, :image_cache, :name, :email,

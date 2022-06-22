@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+  before_action :ensure_user, only: %i[ edit update destroy ]
   before_action :set_picture, only: %i[ show edit update destroy ]
 
   def index
@@ -49,6 +50,12 @@ class PicturesController < ApplicationController
   
 
   private
+
+  def ensure_user
+    @pictures = current_user.pictures
+    @picture = @pictures.find_by(id: params[:id])
+    redirect_to new_session_path, notice: "Login required" unless @picture
+  end
 
   def set_picture
     @picture = Picture.find(params[:id])
