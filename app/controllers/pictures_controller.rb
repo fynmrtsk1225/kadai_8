@@ -20,6 +20,7 @@ class PicturesController < ApplicationController
     @picture = current_user.pictures.build(picture_params)
     render :new and return if params[:back]
     if @picture.save
+      PostedMailer.posted_mail(@picture).deliver
       redirect_to pictures_path, notice: "Posting completed."
     else
       render :new
