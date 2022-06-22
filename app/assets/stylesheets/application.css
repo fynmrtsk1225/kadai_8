@@ -13,3 +13,75 @@
  *= require_tree .
  *= require_self
  */
+html {
+  position: relative;
+  min-height: auto;
+  height: auto;
+}
+
+body {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  padding-top: 80px;
+}
+
+header {
+  width: 100%;
+  padding: 5px 0;
+  margin: 0 auto;
+  background-color: hwb(122 50% 39%);
+  position: fixed;
+  top: 0;
+}
+
+header .AppName{
+  font-size: 32px;
+  margin: 0 auto;
+}
+
+header a {
+  text-decoration: none;
+  color: rgb(21, 18, 18);
+}
+
+table {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+tbody{
+  padding: auto;
+}
+
+.Picture{
+  margin-top: 15px;
+}
+
+.image_field{
+  margin: 10px;
+}
+
+.content_field{
+  margin: 10px;
+}
+
+.confirm_form{
+  margin-left: 150px;
+}
+
+li {
+  list-style: none;
+}
+
+footer {
+  background-color: hwb(122 50% 39%);
+  width: 100%;
+  font-size: 0.8rem;
+  color: rgb(21, 18, 18);
+  position:fixed;
+  bottom: 0;
+  text-align: center;
+  }

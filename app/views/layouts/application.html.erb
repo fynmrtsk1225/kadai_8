@@ -11,6 +11,9 @@
 
   <body>
     <header>
+      <h1 class="AppName">
+        <a> Picon </a>
+      </h1>
       <% if logged_in? %>
         <%= link_to 'Home', pictures_path %>
         <%= link_to 'New', new_picture_path %>
@@ -28,5 +31,10 @@
     <% end %>
     
     <%= yield %>
+
+    <footer>
+      <p>~つぶやきを知ると世界が平和に~</p>
+      <p>© 2015-2018 Copyright ANYA SPY FAM Corp.</p>
+    </footer>
   </body>
 </html>
