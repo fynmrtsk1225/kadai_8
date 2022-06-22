@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  
   <%= f.label :image %>
   <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
   <%= f.file_field :image %>
